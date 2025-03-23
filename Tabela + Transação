@@ -1,1 +1,3 @@
 CLEAR: lr_origem[], lr_destin_param[].
+
+lr_origem_param = VALUE #( FOR )
