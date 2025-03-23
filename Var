@@ -1,0 +1,8 @@
+DATA: gv_num_1 TYPE i,
+			gv_num_2 TYPE i,
+			gv_resu  TYPE i.
+			
+gv_num_1 = 5.
+gv_num_2 = 10.
+gv_resu = gv_num_1 + gv_num_2.
+WRITE: 'Resultado: ', gv_resultado.
