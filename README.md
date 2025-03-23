@@ -4,7 +4,7 @@ SELECT *
 
   CALL METHOD cl_gui_frontend_services=>gui_dowload
     EXPORTING
-      filenmane  = 'Caminho'.
+      filename  = 'Caminho'.
       filetype   = 'ASC'.
     CHANGING
       data_tab   = lt_dados
