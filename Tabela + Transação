@@ -1,3 +1,4 @@
 CLEAR: lr_origem[], lr_destin_param[].
 
 lr_origem_param = VALUE #( FOR <lfs_param> IN lt_param ( sign = 'I' option = 'EQ' low = <lfs_param>-low(4) hight = space ) ).
+lr_destin_param = VALUE #( FOR <lfs_param> IN lt_param ( sign = 'I' option = 'EQ' low = <lfs_param>-low(4) hight = space ) ).
