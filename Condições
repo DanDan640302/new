@@ -1,0 +1,8 @@
+DATA: v_teste(100) TYPE c.
+
+IF v_teste IS NOT INITIAL.
+	MESSAGE: 'Var preenchida' TYPE 'S'.
+ENDIF.
+IF v_teste IS INITIAL.
+	MESSAGE: 'Var não preenchida' TYPE 'S'.	
+ENDIF.
