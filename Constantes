@@ -4,7 +4,7 @@ CONTANTES lc_pi(12)  TYPE p DECIMALS 13 VALUE '3,1415926535898'
 
 
 	   ld_area = ( ld_raio * ld_raio ) * lc_pi
-						   "Alimentando variavel ld_raio"
+						   
 			ld_raio = 10.
 
 			WRITE: 'Area de um circulo com raio de', ld_raio, é, ld_area. 	
