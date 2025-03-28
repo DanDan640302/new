@@ -1,8 +1,8 @@
-CONTANTES lc_pi(12)  TYPE p DECIMALS 13 VALUE '3,1415926535898'
+CONSTANTS lc_pi(11)  TYPE p DECIMALS 13 VALUE '3.141592653'.
 DATA: ld_raio(12)    TYPE p DECIMALS 2,
       ld_area(12)    TYPE p DECIMALS 2.
 
 ld_raio = 10.
-ld_area = ( ld_raio * ld_raio ) * lc_pi
+ld_area = ( ld_raio * ld_raio ) * lc_pi.
 
-WRITE: 'Area de um circulo com raio de', ld_raio, é, ld_area. 	
+WRITE: 'Area de um circulo com raio de', ld_raio, 'é', ld_area. 	
