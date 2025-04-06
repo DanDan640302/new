@@ -3,6 +3,10 @@ ld_text = 'texte'
 FIEL-SYMBOLS <fs_text> TYPE char100.
 ASSING ld_text TO <fs_text>.
 
+DATA(ld_text) = 'texte'.
+ASSIGN lv_text TO FIELD-SYMBOL(<fs_text>).
+
+
 DATA: ls_scarr TYPE STANDART TABLE OF scarr.
 FIELD-SYMBOLS: '<fs_scarr>' LIKE ls_scarr. 
 ASSING ls_scarr TO '<fs_scarr>'.
