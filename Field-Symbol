@@ -6,6 +6,18 @@ ASSING ld_text TO <fs_text>.
 DATA(ld_text) = 'texte'.
 ASSIGN lv_text TO FIELD-SYMBOL(<fs_text>).
 
+UNASSIGN <fs_text>
+
+DATA: ls_scarr TYPE scarr.
+FIELD-SYMBOLS: '<FS_SCARR>' TYPE scarr. 
+ls_scarr-carrid = 1.
+ls_scarr-carrname = 'teste'.
+ASSING ls_scarr TO '<fs_scarr>'.
+
+DATA: lv_varname TYPE char100.
+FIELD-SYMBOLS '<fs_scarr>' TYPE char100,
+lv_varname = '(nome do programa )variável'
+ASSING ls_scarr TO '<fs_scarr>'.
 
 DATA: ls_scarr TYPE STANDART TABLE OF scarr.
 FIELD-SYMBOLS: '<fs_scarr>' LIKE ls_scarr. 
@@ -13,3 +25,7 @@ ASSING ls_scarr TO '<fs_scarr>'.
 SELECT *
 FROM scarr
 INTO TABLE ls_scarr.
+
+DATA: ld_text TYPE char100.
+FIELD-SYMBOLS '<fs_text>' TYPE any. não especificado.
+ASSING ld_text TO '<fs_text>'.
