@@ -1,0 +1,7 @@
+
+DATA: ls_scarr TYPE STANDART TABLE OF scarr.
+FIELD-SYMBOLS: '<fs_scarr>' LIKE ls_scarr. 
+ASSING ls_scarr TO '<fs_scarr>'.
+SELECT *
+FROM scarr
+INTO TABLE ls_scarr.
