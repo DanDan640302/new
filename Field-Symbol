@@ -13,7 +13,7 @@ FIELD-SYMBOLS: '<FS_SCARR>' TYPE scarr.
 ls_scarr-carrid = 1.
 ls_scarr-carrname = 'teste'.
 ASSING ls_scarr TO '<fs_scarr>'.
-
+APPEND
 DATA: lv_varname TYPE char100.
 FIELD-SYMBOLS '<fs_scarr>' TYPE char100,
 lv_varname = '(nome do programa )variável'
