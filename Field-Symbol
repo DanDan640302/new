@@ -1,3 +1,7 @@
+DATA ld_text TYPE char100.
+ld_text = 'texte'
+FIEL-SYMBOLS <fs_text> TYPE char100.
+ASSING ld_text TO <fs_text>.
 
 DATA: ls_scarr TYPE STANDART TABLE OF scarr.
 FIELD-SYMBOLS: '<fs_scarr>' LIKE ls_scarr. 
