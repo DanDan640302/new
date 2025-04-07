@@ -44,3 +44,5 @@ IF sy-subrc = 0.
 ELSE.
   MESSAGE |Erro ao salvar arquivo [{ sy-subrc }]| TYPE 'E'.
 ENDIF.
+SELECTION-SCREEN BEGIN OF BLOCK b1.
+  PARAMETERS p_cpf TYPE ZCADASTRO1-CPF MATCHCODE OBJECT ZSH_ZDADOS. ''
