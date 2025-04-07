@@ -1,1 +1,8 @@
-
+LOOP AT lt_plane INTO DATA(ls_plane). "Trabalha com uma tabela interna e sempre joga dentro de uma estrutura"
+LOOP AT lt_plane INTO DATA(ls_plane) WHERE seatsmax > 200.
+WRITE: 'sy-index', sy-index.
+WRITE: 'sy-tabix', sy-tabix.
+ WRITE: ls_plane-planetype, ls_plane-seatsmax.
+ NEW-LINE.
+ENDLOOP.
+BREAK-POINT.
