@@ -1,2 +1,3 @@
 TYPES ly_scarr_tab TYPE STANDARD TABLE OF scarr.
 TYPES ly_carrid_r TYPE RANGE OF scarr-carrid.
+TYPES ly_scarr_tab TYPE STARDARD TABLE OF scarr WITH NOW-UNIQUE KEY carrid.
