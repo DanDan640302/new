@@ -1,0 +1,1 @@
+READ TABLE lt_bapiret2 TRANSPORTING NO FIELDS WITH KEY type = 'E'.
