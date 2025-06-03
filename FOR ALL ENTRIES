@@ -1,0 +1,60 @@
+REPORT zforallentries.
+
+" Recurso do select que possibilita a ligação de uma tabela de banco de dados "sairport" com uma tabela interna lt_result.
+
+TYPES: BEGIN OF ly_typel, "-> Inicio tabela interna
+  "Modelo chamado ly_typel, única linha de dados.
+         countryfr TYPE spfli-countryfr,
+         cityfrom  TYPE spfli-cityfrom,
+         airpfrom  TYPE spfli-cityfrom,
+         name      TYPE sairport-name,
+         countryto TYPE spfli-countryto,
+         cityto    TYPE spfli-cityto,
+         airpto    TYPE spfli-airpto,
+       END OF ly_typel. "-> Fim tabela interna
+
+DATA: lt_result TYPE STANDARD TABLE OF ly_typel.
+"Tabela interna = Temporaria, que fica somente na memoria do programa, ela amarmazena varias linhas de dados.
+"Cada linha seguirá a estrutura definida em ly_typel. STD é uma tabela interna padrç
+DATA: LT_AIRPORT TYPE HASHED TABLE OF SAIRPORT WITH UNIQUE KEY id.
+DATA: ls_airpot TYPE sairport.
+
+FIELD-SYMBOLS: <ls_result> TYPE ly_typel.
+
+
+START-OF-SELECTION.
+  "PERFORM for_all_entries.
+  BREAK-POINT.
+" Consultando a tabela de aeroportos, vai pegar somente os aeroporto da UTC+1 jogando dentro da tabela interna "lt_airpot"
+  SELECT *
+   INTO TABLE LT_AIRPORT
+    FROM sairport
+    WHERE time_zone = 'UTC+1'.
+
+    BREAK-POINT.
+
+    IF lines( LT_AIRPORT ) > 0.
+    " Depois consulta a tabela de banco "SPFLI - Agendamentos de voo" e liga a tabela SPFLI banco ligada a tabela interna "LT_AIRPORT"
+      SELECT *
+        FROM spfli
+        INTO CORRESPONDING FIELDS OF TABLE lt_result
+        FOR ALL ENTRIES IN lt_airport
+        WHERE spfli~airpfrom = lt_airport-id.
+
+    ENDIF.
+
+
+
+*
+BREAK-POINT.
+"Cada linha do resultado, vai procurar cada aeropoto da tabela interna de aeroportos, encontrando, joga pra dentro do campo name,
+    LOOP AT lt_result ASSIGNING <ls_result>.
+
+     READ TABLE LT_AIRPORT INTO ls_airpot WITH TABLE KEY ID =  <ls_result>-AIRPFROM.
+      IF SY-SUBRC = 0.
+        <ls_result>-NAME = ls_airpot-NAME.
+      ENDIF.
+
+    ENDLOOP.
+
+    BREAK-POINT.
